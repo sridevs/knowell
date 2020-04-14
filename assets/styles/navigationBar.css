@@ -1,0 +1,79 @@
+.navigation {
+    height: 60px;
+    background-color: #ffffff;
+    line-height: 60px;
+}
+
+.navigation img {
+    vertical-align: middle;
+    height: 35px;
+    width: 38px;
+}
+.navigation a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #000000;
+}
+
+.navigation .navbar-left {
+    margin-left: 2.5rem;
+}
+
+.navigation .navbar-right {
+    margin-right: 1.5rem;
+}
+.navigation .user-links {
+    margin-right: 2rem;
+}
+
+.navigation .admin-links {
+    margin-left: 2rem;
+}
+
+.navigation .user-links  a {
+    padding-bottom: 18px;
+}
+
+@media only screen and (max-width: 767px){
+    .navigation .navbar-right, .navigation .navbar-left {
+        margin-left: 3rem;
+    }
+    .navigation .admin-links {
+        margin-left: 0rem;
+    }
+    .navigation a{
+        padding: 10px;
+    }
+    .selected {
+        border-bottom: none !important;
+        border-left: 4px solid #1ea6dd;
+    }
+}
+
+.navigation .admin-links  a {
+    padding-bottom: 18px;
+}
+
+.navigation .selected{
+    border-bottom: 4px solid #1ea6dd;
+}
+.navigation .link-container {
+    display: inline-block;
+}
+
+.navbar-toggle {
+    float: left;
+    margin-left: 4rem;
+}
+.navbar-fixed-top .navbar-collapse {
+    max-height: 100%;
+}
+
+#add-user-selection-bar {
+    margin-right: 25px;
+}
+
+#add-user-img {
+    font-size: 33px;
+    padding-top: 25%;
+}

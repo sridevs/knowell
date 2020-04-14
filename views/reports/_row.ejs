@@ -1,0 +1,11 @@
+<tr>
+    <td class="serial-no" id="<%=page + "-serial-no" %>">
+        <%= index+1 %>
+    </td>
+    <% for (let each in report){%>
+    <td class="<%=each.split(' ').join('-')%>" id="<%=page + "-" + each.split(' ').join('-')%>">
+        <div class="scrollable-td" title="<%- report[each]%>"><%- report[each] || "&nbsp;"%></div>
+    </td>
+    <%}%>
+</tr>
+

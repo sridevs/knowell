@@ -1,0 +1,15 @@
+#add-book {
+    margin-top: 0px;
+}
+
+#error-msg {
+    margin-top: -12px;
+    margin-left: 1%;
+    color: #E34A3B;
+    font-size: 15px;
+}
+
+#upload {
+    margin-top: 20%;
+     margin-bottom: 20%;
+}

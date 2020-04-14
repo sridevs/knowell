@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #a3a3a3;
+    background-color: #dddddd;
+    z-index: 10;
+}
+
+.footer a {
+    margin: 0 30px 0 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.feedback {
+    float: right;
+}

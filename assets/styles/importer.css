@@ -1,0 +1,297 @@
+body {
+  background-color: #F4F4F4 !important;
+  font-family: Helvetica, sans-serif;
+  padding: 150px 0 40px 0 !important;
+}
+
+html {
+  font-size: 16px;
+}
+.font-xl {
+  font-size: 2.25rem;
+}
+.font-l {
+  font-size: 1.2rem;
+}
+.font-m{
+  font-size: 0.95rem;
+}
+@media only screen and (max-width: 991px){
+  html {
+    font-size: 13px;
+  }
+}
+
+
+@media only screen and (max-width: 768px){
+  html {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 480px){
+  html {
+    font-size: 9px;
+  }
+}
+
+#alert-box {
+  margin-bottom: 0px;
+  padding: 0px 2% 0 2%;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 9%;
+}
+
+.login-btn-container {
+  margin-top: 16%;
+}
+
+.one-line-truncated {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.disabled {
+  background: grey;
+}
+
+
+.button-grey {
+  background: lightgray;
+  color: black;
+}
+
+.button-grey:hover {
+  background: dimgray;
+  color: white;
+}
+
+
+#all-books a {
+  text-decoration: none;
+  color: black;
+}
+
+::-ms-clear {
+  display: none;
+}
+
+.form-control-clear {
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.row .content{
+  padding: 2%;
+}
+
+.glyphicon-remove:before{
+  color: red;
+}
+
+.next{
+  margin-top: 10%;
+}
+
+.img-thumbnail{
+  width: 25%;
+  margin-top: 5%;
+}
+.img-thumbnail-bulk{
+  width:20%;
+  margin: 1%;
+}
+
+.book-info{
+  font-size: 20px;
+  margin-top: 5%;
+
+}
+.book-info dd{
+  font-size: 18px;
+}
+
+.verify-book-btns{
+  margin-top: 10%;
+  font-size: 17px;
+}
+
+.text-input-box{
+  height: 45px;
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.multiple-book-inputs{
+  height: 45px;
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.multibooks-container{
+  margin-top: 10%;
+}
+
+.form-group label{
+  font-size: 13px;
+  font-weight: 200;
+}
+.body-content{
+  padding: 0px;
+  height:685px;
+}
+
+.verify-book-detail{
+  background-color: white;
+  margin-top: 1%;
+}
+
+.back-btn {
+  text-align: center;
+}
+
+.black-link {
+  color: black;
+}
+.black-link:hover{
+  color: black;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}
+
+.ajax_loader{
+  z-index: 10;
+  position: fixed;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  background:rgba(0,0,0,.1);
+  font-size: 100px;
+}
+
+.hidden{
+  display:none;
+}
+
+.ajax_loader i{
+  position:absolute;
+  left:45%;
+  top:50%;
+}
+
+.disable-body {
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.book-image {
+  height: 150px;
+  width: 95px;
+}
+.media-object.book-image{
+  margin: 10%;
+}
+
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 45%;
+  bottom: 80px;
+  font-size: 17px;
+}
+
+.snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 3s;
+  animation: fadein 0.5s, fadeout 0.5s 3s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 80px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 80px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 80px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 80px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+#return-confirmation {
+  top: 18rem;
+}
+#return-confirmation .modal-body button {
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+#return-confirmation h4 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.background-white {
+  background: #ffffff;
+}
+
+#book-container {
+  background: #ffffff;
+  margin-bottom: 2%;
+  padding: 10px;
+}
+
+#book-container h3{
+  color: black;
+}
+.media {
+  text-align: center;
+  background-color: #fff;
+}
+
+.table-content {
+  padding-bottom: 55px;
+}
+
+.scrollable-td {
+  white-space: nowrap;
+  overflow-y: scroll;
+}
+
+#transaction-option button {
+  width: 50%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step Library</title>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" rel="stylesheet">
+    <script src="/js/common.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/navigationBar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <!--STYLES END-->
+</head>
+<body>
+<div class="container-fluid">
+    <div class="ajax_loader hidden"><i class="fa fa-spinner fa-pulse fa-fw"></i></div>
+    <div class="row navbar-fixed-top">
+        <div class="col-md-12">
+            <header class="header">
+                <a href="/" id="library-home">
+                    <img src="/images/libraryLogo.svg">
+                    <h1>STEP Library</h1>
+                </a>
+                
+            </header>
+            
+        </div>
+        <div id="snackbar-global" class="snackbar"></div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <%- body %>
+            </div>
+        </div>
+        <div class="row">
+            <footer class="footer">
+                <i class="fa fa-bolt"></i> By STEP
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=step-library@thoughtworks.com&su=FeedBack for STEP Library&body=Hello Team" target="_blank" class="feedback">Feedback <i class="fa fa-envelope"></i></a>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+#search-title-form {
+    display: flex;
+}
+
+#search-title-btn {
+    width: 80px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#search-bar {
+    height: 50px;
+    font-size: 20px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.search-box {
+    margin-bottom: 2%;
+    margin-top: 3%;
+}
+
+#search-icon {
+    font-size: 22px;
+}
+
+#title-bucket {
+    font-weight: 100;
+    color: dimgray;
+}
+
+#hr-line {
+    border-top: 1px solid black;
+    border-bottom: 1px solid dimgray;
+}
+
+#hr-line:after {
+    content: '';
+    display: block;
+    margin-top: 2px;
+    border-top: 1px solid #8c8b8b;
+    border-bottom: 1px solid #fff;
+}
+
+.checkbox-container {
+    margin-top: 20px;
+    margin-left: 20px;
+}

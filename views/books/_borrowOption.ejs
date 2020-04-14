@@ -1,0 +1,47 @@
+<table class="table table-bordered table-striped">
+    <% if(book.availableTagNumber.length){ %>
+
+        <% for(let counter = 0; counter < book.availableTagNumber.length; counter++){ %>
+        <tr>
+            <td>
+                <%- book.availableTagNumber[counter].tagNumber %>
+            </td>
+            <td>
+                <%if(book.availableTagNumber[counter].disabled){%>
+                    Missing
+                <%} else {%>
+                    <button onclick='Library.borrowTitle("<%= book.id %>", "<%= book.title %>", "<%= book
+                            .availableTagNumber[counter].tagNumber %>")' class="btn button-grey">Borrow
+                    </button>
+                <%}%>
+            </td>
+            <%if (isLibrarian) {
+                if(book.availableTagNumber[counter].disabled){ %>
+                    <td>
+                        <button class="btn button-grey" onclick='Library.enableBook("<%= book.availableTagNumber[counter].tagNumber %>")'>Enable</button>
+                    </td>
+                <%} else {%>
+                    <td>
+                        <button class="btn button-grey" onclick='Library.disableBook("<%= book.availableTagNumber[counter].tagNumber %>")'>Disable</button>
+                    </td>
+                <%}%>
+            <%}%>
+        </tr>
+        <% } %>
+    <% } %>
+    <% if(book.unavailableBooksWithBorrower.length){ %>
+        <% for(let counter = 0; counter < book.unavailableBooksWithBorrower.length; counter++){ %>
+        <tr>
+            <td>
+                <%- book.unavailableBooksWithBorrower[counter].tag_number %>
+            </td>
+            <td>
+                <div class="h4">
+                    <b>Borrowed By: </b><%- book.unavailableBooksWithBorrower[counter].email %>
+                </div>
+            </td>
+        </tr>
+        <% } %>
+    <% } %>
+
+</table>

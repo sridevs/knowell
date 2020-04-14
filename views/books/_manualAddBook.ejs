@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/styles/manualAddBook.css">
+
+<div class="row">
+    <form action="/books/addBooks" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <div class="form-group form-horizontal col-md-9" id="details">
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">ISBN:</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control text-input-box" id="isbn-input" placeholder="ISBN (i.e 1234567890)"
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57" min="1" name="isbn">
+                </div>
+            </div>
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">*Title:</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control text-input-box" id="title" name="title" placeholder="Title">
+                </div>
+            </div>
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">*Author:</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control text-input-box" id="author" name="author" placeholder="Author">
+                </div>
+            </div>
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">Publisher:</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control text-input-box" id="publisher" placeholder="Publisher" name="publisher">
+                </div>
+            </div>
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">Pages:</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control text-input-box" id="pages-input" placeholder="No. of pages (i.e 1)"
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57" min="1" name="pages">
+                </div>
+                <label class="control-label col-md-2" id="form-fields">Copies</label>
+                <div class="col-md-4" id="num-of-copies">
+                    <input type="text" class="form-control text-input-box" id="copies" placeholder="No. of copies (i.e 1)"
+                           onkeypress="return event.charCode >= 48 && event.charCode <= 57" min="1" name="numOfCopy">
+                </div>
+            </div>
+            <div class="table-content">
+                <label class="control-label col-md-3" id="form-fields">Description :</label>
+                <div class="col-md-9">
+                    <textArea rows="5" name="description" id="description"></textArea>
+                </div>
+            </div>
+            <div class="col-md-offset-6 col-xs-offset-6 col-md-6 col-xs-6">
+                <button id="submit-manual" type="submit" class="btn btn-block button-grey">
+                    Add
+                </button>
+            </div>
+        </div>
+        <div class="form-group col-md-3" id="image-container">
+            <input type="file" id="file" class="choose-image-btn" name="thumbnailURL" onchange="updateImage(this)" accept="image/x-png,image/jpeg">
+            <label for="file" id="image-label">
+                <img src="/images/upload.svg" class="upload-img" alt="">
+            </label>
+            <input type="button" id="remove-img-btn">
+            <div class="link-for-image">
+                or
+                <input type="text" class="form-control text-input-box" name="thumbnailURL" id="image-link" placeholder="link for image">
+            </div>
+        </div>
+    </form>
+</div>

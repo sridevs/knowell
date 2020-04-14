@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/styles/tab.css">
+<div class="row">
+    <%pageHeader="Library Transactions"%>
+    <%emptyRecordMessage="No transactions happened"%>
+    <%page="transaction"%>
+    <%downloadCsvEnabled=true%>
+    <div class="col-md-1"></div>
+    <div id="reports" class="col-md-10">
+        <div class="tab" id="transaction-option">
+            <button class="tablinks" id="defaultOpen" data-id="all-reports"><%= pageHeader%></button>
+            <button class="tablinks" data-id="on-hold-reports" >Currently Borrowed</button>
+        </div>
+
+        <div id="all-reports" class="tabcontent">
+                <%- include _table.ejs%>
+        </div>
+
+        <div id="on-hold-reports" class="tabcontent">
+                <%- include _onHoldTitlesTable.ejs%>
+        </div>
+        <script src="/js/reports/transactions.js"></script>
+    </div>
+    <div class="col-md-1"></div>
+</div>

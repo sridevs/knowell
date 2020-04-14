@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step Library</title>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css"
+          rel="stylesheet">
+    <script src="/js/common.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/navigationBar.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+    <!--STYLES END-->
+</head>
+<body>
+<div class="container-fluid">
+    <div class="ajax_loader hidden"><i class="fa fa-spinner fa-pulse fa-fw"></i></div>
+    <div class="row navbar-fixed-top">
+        <div class="col-md-12">
+            <header class="header">
+                <a href="/" id="library-home">
+                    <img src="/images/libraryLogo.svg">
+                    <h1>STEP Library</h1>
+                </a>
+                <div class="float-right">
+                    <div id="profile-image" class="profile-photo">
+                        <img class='img-circle' src="<%= profileImage%>"></img>
+                    </div>
+                    <div class="visible-lg-inline-block visible-md-inline-block visible-sm-inline-block">
+                        <div id="email-id"><%= name %></div>
+                    </div>
+                    <div class="visible-xs-inline-block">
+                        <div id="email-id-xs"></div>
+                    </div>
+                    <a href="/auth/logout" title="logout">
+                        <i class="fa fa-sign-out logout-icon" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </header>
+            <nav class="navbar navbar-default navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse background-white" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-left">
+                            <% if(roles.borrower){ %>
+                            <li>
+                                <div class="user-links link-container">
+                                    <a href="/books/" id="search-book">
+                                        <img src="/images/bookSearch.svg">
+                                    </a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.borrower){ %>
+                            <li>
+                                <div class="user-links link-container">
+                                    <a href="/books/allBooks" id="all-books">All Books</a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.borrower){ %>
+                            <li>
+                                <div class="user-links link-container">
+                                    <a href="/books/myBooks" id="currently-reading">Currently Reading</a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.borrower){ %>
+                            <li>
+                                <div class="user-links link-container">
+                                    <a href="/reports/myHistory" id="my-history">Already Read</a>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <% if(roles.librarian){ %>
+                            <li>
+                                <div class="admin-links link-container">
+                                    <a href="/books/lendReceive" id="lend-receive">
+                                        <img src="/images/lendReceive.svg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.librarian){ %>
+                            <li>
+                                <div class="admin-links link-container">
+                                    <a href="/reports" id="reports">Reports</a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.librarian){ %>
+                            <li>
+                                <div class="admin-links link-container">
+                                    <a href='/books/new' id="add-book-btn">
+                                        <img src="/images/add-book.svg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% if(roles.admin){ %>
+                            <li>
+                                <div class="admin-links link-container">
+                                    <a href='/users/' id="add-user-selection-bar">
+                                        <img src="/images/add-user.svg" alt="">
+                                    </a>
+                                </div>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="snackbar-global" class="snackbar"></div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <%- body %>
+            </div>
+        </div>
+        <div class="row">
+            <footer class="footer">
+                <i class="fa fa-bolt"></i> By STEP
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=step-library@thoughtworks.com&su=FeedBack for STEP Library&body=Hello Team"
+                   target="_blank" class="feedback">Feedback <i class="fa fa-envelope"></i></a>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+</html>

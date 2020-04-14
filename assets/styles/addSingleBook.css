@@ -1,0 +1,18 @@
+#isbn-single-book {
+    margin-top: 67px;
+}
+
+#isbn-label {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#error-msg {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#num-of-copies-label {
+    font-size: 15px;
+    font-weight: 300;
+}

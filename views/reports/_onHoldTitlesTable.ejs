@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/styles/reports.css">
+<%page="holdings"%>
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 report">
+        <% if(reportsData.length){ %>
+        <h1 class="header-reports">
+            Currently Borrowed
+        </h1>
+        <table class="table table-bordered table-fixed" id="report-data-header">
+            <% dataToShow = reportsData.filter(function(report){
+                    return !report["Returned on"]
+                });
+            %>
+            <%- include _header.ejs %>
+        </table>
+        <div id="report-data-rows">
+            <table class="table table-bordered table-fixed">
+                <tr class="one-line-truncated">
+                    <%dataToShow.forEach(function(report, index){ %>
+                        <%- include _row.ejs %>
+                    <% }); %>
+                </tr>
+            </table>
+        </div>
+        <% if(downloadCsvEnabled == true){%>
+        <%currentData=dataToShow%>
+        <%fileName = 'currently_borrowed_'%>
+        <%- include _downloadCSV.ejs%>
+        <% } %>
+        <% }else{ %>
+        <h1 class="header-reports no-transaction-message">
+            <%= emptyRecordMessage %>
+        </h1>
+        <% } %>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>

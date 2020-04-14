@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/styles/reports.css">
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 report">
+        <% if(reportsData.length ){ %>
+        <h1 class="header-reports">
+            <%- pageHeader %>
+        </h1>
+        <table class="table table-bordered table-fixed" id="report-data-header">
+            <%- include _header.ejs %>
+        </table>
+        <div id="report-data-rows">
+            <table class="table table-bordered table-fixed">
+                <tr class="one-line-truncated">
+                    <% reportsData.forEach(function(report, index){ %>
+                        <%- include _row.ejs %>
+                    <% }); %>
+                </tr>
+            </table>
+        </div>
+        <% if(downloadCsvEnabled == true){%>
+        <%fileName = 'library_transaction_'%>
+        <%currentData=reportsData%>
+        <%- include _downloadCSV.ejs%>
+        <% } %>
+        <% }else{ %>
+        <h1 class="header-reports no-transaction-message">
+            <%= emptyRecordMessage %>
+        </h1>
+        <% } %>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>

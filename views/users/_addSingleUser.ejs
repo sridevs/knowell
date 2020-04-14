@@ -1,0 +1,39 @@
+<div class="row add-single-user">
+    <div class="col-md-3 col-sm-2 col-xs-1"></div>
+    <div class="col-md-6 col-sm-8 col-xs-10">
+        <div class="form-horizontal">
+            <div class="form-group" id="email-box">
+                <label class="col-sm-8" id="text-label">
+                    Enter email
+                </label>
+                <div class="col-sm-12">
+                    <input name="email" type="text" id="email" class="form-control text-input-box"
+                           placeholder="e.g. example@thoughtworks.com">
+                </div>
+            </div>
+            <p class="error-msg" id="mail-error-msg"></p>
+            <div class="form-group">
+                <label class="col-sm-8" id="text-label">
+                    Select Role
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <label class="checkbox-inline role-selection"><input type="checkbox" id="admin-role" onclick="enableAddButton()">Admin</label>
+                        <label class="checkbox-inline role-selection"><input type="checkbox" id="librarian-role" onclick="enableAddButton()">Librarian</label>
+                        <label class="checkbox-inline role-selection"><input type="checkbox" id="borrower-role" onclick="enableAddButton()">Borrower</label>
+                    </div>
+                </div>
+            </div>
+            <p class="error-msg" id="role-error-msg"></p>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-xs-offset-4 col-sm-6 col-xs-6">
+                    <button id="submit" type="submit" class="btn btn-block text-input-box button-green" onclick='addSingleUser()' disabled>
+                        Add
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-2 col-xs-1"></div>
+</div>
+<script src="/js/addUser/addSingleUser.js"></script>

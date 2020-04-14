@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/styles/allBooks.css">
+<% if(titles.length == 0){ %>
+    <div class="return-my-books col-md-10 col-sm-12 col-xs-12 col-md-offset-1 font-xl background-white one-line-truncated">
+        You don't have any borrowed books.
+    </div>
+<% } %>
+<% titles.forEach(function(title){ %>
+    <%- include _myBooks.ejs %>
+<% }); %>
+<script src="/js/myBooks/index.js"></script>

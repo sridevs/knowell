@@ -1,0 +1,10 @@
+<thead>
+<th class="serial-no" id="<%=page + "-serial-no" %>">
+    Sr.
+</th>
+<% for (let each in reportsData[0]){%>
+<th class="<%=each.split(' ').join('-')%>" id="<%=page + "-" + each.split(' ').join('-')%>">
+    <div class="scrollable-td"><%- each%></div>
+</th>
+<%}%>
+</thead>

@@ -1,0 +1,39 @@
+<a href='/books/details?titleId=<%= title.id %>' class="black-link">
+    <div class="col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" id="book-container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="/books/fetchImage?isbn=<%= title.isbn %>"
+                     alt=":( Sorry Book Image Not Available"
+                     class="media-object book-image"
+                        onerror="this.onerror=null; this.src='/images/bookDefault.svg'">
+            </div>
+            <div class="col-md-9">
+                <div class="h3 one-line-truncated"><%= title.title %></div>
+
+                <div class="h5 one-line-truncated text-muted">
+                    <%if(title.author) {%>
+                    Author: <%= title.author %>
+                    <%}else{ %> Author not available<%}%>
+                </div>
+
+                <div class="h5 one-line-truncated text-muted">
+                    <%if(title.publisher) {%>
+                    Publisher: <%= title.publisher %>
+                    <%}else{ %> Publisher not available<%}%>
+                </div>
+                <% if (title.available) { %>
+                <div class="color-green availability">
+                    <img src="/images/greenCircle.svg"> Available
+                </div>
+                <% } else{ %>
+                <div class="color-red availability">
+                    <img src="/images/redCircle.svg"> Not Available
+                </div>
+                <% } %>
+                <% if (title.hasRead) {%>
+                <h4><span class="label label-warning read-label">Already Read</span></h4>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</a>

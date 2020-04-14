@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/styles/bookDetails.css">
+<div class="row book-details-container">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        <div class="alert alert-success alert-dismissable">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            You have added book copies to the library successfully with given tag numbers
+        </div>
+        <h1 class="text-left header-with-border">
+            Recently added
+        </h1>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    Series
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Tag number
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <%var index = 0%>
+            <% allAddedBooks.forEach(function(book){ %>
+                <%var title = book.title%>
+                <% book.tagIds.forEach(function(tagId){ %>
+                    <%- include _bookCopy.ejs %>
+                <% }) %>
+            <% }) %>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>

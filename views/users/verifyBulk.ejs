@@ -1,0 +1,58 @@
+<% if (data.error){ %>
+<div class="col-md-11 container">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">Invalid format, header should be in (email)
+            format.
+        </li>
+    </ul>
+</div>
+<% }else{ %>
+<div class="col-md-12" style="background-color: white">
+    <div class="col-md-12 container">
+        <ul class="list-group">
+            <% if (data.alreadyExists.length){ %>
+            <li class="list-group-item list-group-item-danger messages">Emails(s)
+                <b><%- data.alreadyExists.join(', ') %></b> are already exists.
+            </li>
+            <% } %>
+            <% if (data.invalidEmails.length){ %>
+            <li class="list-group-item list-group-item-danger messages">Emails(s)
+                <b><%- data.invalidEmails.join(', ') %></b> are invalid.
+            </li>
+            <% } %>
+
+        </ul>
+    </div>
+    <div class="col-md-2"></div>
+    <% if(data.canBeAdded.length > 0){ %>
+    <div class="col-md-8">
+        <table class="table table-fixed table-bordered">
+            <thead>
+            <tr>
+                <th class="id">Sr.</th>
+                <th class="email">Email</th>
+                <th class="select"><input id="check-all-users" type="checkbox"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <form action="/users/upload" method="post">
+                <% data.canBeAdded.forEach(function(email, index){ %>
+                <tr>
+                    <td class="id"><%= (++index) %></td>
+                    <td class="email"><%= email %></td>
+                    <td class="select"><input type="checkbox" name="<%= email %>"></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="submit-btn">
+            <input class="btn button-grey" type="submit" value="Submit">
+        </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+    <% } %>
+</div>
+<% } %>
+<link rel="stylesheet" href="/styles/bulkUsersUpload.css">
+<script src="/js/addUser/addMultipleUsers.js"></script>

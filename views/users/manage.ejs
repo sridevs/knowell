@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/styles/addUser.css">
+<link rel="stylesheet" href="/styles/tab.css">
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="add-user" class="col-md-10">
+        <%if (messages.error){%>
+        <div class="alert alert-danger alert-dismissable">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <%= messages.error%>
+        </div>
+        <%}%>
+        <%if (messages.success){%>
+        <div class="alert alert-success alert-dismissable">
+            <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <%= messages.success%>
+        </div>
+        <%}%>
+
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" data-id="add-single-user">Add user</button>
+            <button class="tablinks" data-id="add-multiple-users">Upload users by CSV</button>
+            <button class="tablinks" data-id="manage-user">Manage users</button>
+        </div>
+
+        <div id="add-single-user" class="tabcontent">
+            <%- include _addSingleUser.ejs %>
+        </div>
+
+        <div id="add-multiple-users" class="tabcontent">
+            <%- include _uploadBorrowers.ejs%>
+        </div>
+
+        <div id="manage-user" class="tabcontent" >
+            <%- include _manageUsers.ejs %>
+        </div>
+
+        <script src="/js/addUser/index.js"></script>
+    </div>
+    <div class="col-md-1"></div>
+</div>

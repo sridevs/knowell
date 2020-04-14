@@ -1,0 +1,13 @@
+body{
+    background-image: url('https://thoughtworks.okta.com/bc/fileStoreRecord?id=fs01awmojqeULsIhx0h8');
+    background-position: 25%;
+}
+
+#login-btn-container{
+    background-color: rgba(238,238,238,0.9);
+    text-align: center;
+}
+
+#login-anchor{
+    text-decoration: none;
+}

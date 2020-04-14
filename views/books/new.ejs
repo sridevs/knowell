@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/styles/addBook.css">
+<link rel="stylesheet" href="/styles/tab.css">
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="add-book" class="col-md-10">
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" data-id="add-book-isbn">Add Book by ISBN</button>
+            <button class="tablinks" data-id="add-multiple-book">Upload books by CSV</button>
+            <button class="tablinks" data-id="add-book-manual">Add Book Manually</button>
+        </div>
+
+        <div id="add-book-isbn" class="tabcontent">
+            <%- include _addSingleBook.ejs %>
+        </div>
+        <div id="add-book-manual" class="tabcontent">
+            <%- include _manualAddBook.ejs %>
+        </div>
+
+        <div id="add-multiple-book" class="tabcontent">
+            <%- include _bulkUploadBooks.ejs%>
+        </div>
+
+
+        <script src="/js/addBook/index.js"></script>
+        <script src="/js/addBook/manualAddBook.js"></script>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<script src="/js/addBook/addSingleBook.js"></script>

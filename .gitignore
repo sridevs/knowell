@@ -1,0 +1,13 @@
+node_modules/
+.idea/
+npm-debug.log
+.DS_Store/
+step-library.iml
+.tmp/
+logs/
+views/layouts/*
+tmp/upload/*.jpg
+.vagrant
+coverage
+.setup.sh
+tmp

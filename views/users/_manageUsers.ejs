@@ -1,0 +1,58 @@
+<div style="padding: 2%">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Sr.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Enabled</th>
+            <th>Borrower</th>
+            <th>Librarian</th>
+            <th>Admin</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Sr.</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Enabled</th>
+            <th>Borrower</th>
+            <th>Librarian</th>
+            <th>Admin</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <% users.forEach(function(report, index){ %>
+        <tr>
+            <% for (let each in report){ %>
+            <% if(each == 'id'){ %>
+            <td>
+                <%- index + 1 %>
+            </td>
+            <% } else if(each == 'name'){ %>
+            <td>
+                <%- report[each] %>
+            </td>
+            <% } else if(each == 'email'){ %>
+            <td>
+                <%- report[each] %>
+            </td>
+            <% }else { %>
+            <td>
+                <input type="checkbox" class="checkbox"
+                       id="<%= report['email'].split('@')[0] + each %>"
+                       data-email="<%= report['email'] %>"
+                       data-field="<%= each %>"
+                        <%= report[each] ? "checked" : "" %>
+                        <%= each == 'isBorrower' && report['isLibrarian'] ? "disabled" : "" %>>
+            </td>
+            <% } %>
+            <% } %>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<script src="/js/addUser/manageUsers.js"></script>

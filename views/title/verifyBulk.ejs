@@ -1,0 +1,42 @@
+<% if (data.error){ %>
+<div class="col-md-11 container">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-danger">Invalid format, header should be in (isbn,numOfCopy)
+            format
+        </li>
+    </ul>
+</div>
+<% }else{ %>
+<div class="col-md-11 container">
+    <ul class="list-group">
+        <% if (data.notFoundBooks.length){ %>
+        <input type="text" name="fileData" value="<%=JSON.stringify(data.notFoundBooks)%>" hidden>
+        <li class="list-group-item list-group-item-danger">Unable to find <b><%- data.notFoundBooks.length %></b> ISBN(s). download CSV from
+                <a id="download-not-found-books" role="button">here</a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% if (data.foundBooks.length){ %>
+<div class="col-md-11 h4 text-muted">
+    <% if (data.foundBooks.length){ %>
+        <h4>Result showing for <b><%- data.foundBooks.length %> </b>ISBN(s).</h4>
+    <% } %>
+    <br><label for="add-all"><i>Add all</i></label>
+    <input type="checkbox" class="add-book-checkbox" name="is-all-checked" id="add-all" autocomplete="off"/>
+</div>
+
+<form action="/books/verify" method="post">
+    <% data.foundBooks.forEach(function(title, index){ %>
+    <%- include ./_verifyEachBook.ejs %>
+    <% }) %>
+
+    <div class="col-md-12">
+        <input class="btn button-grey" type="submit" value="Submit" id="submit-all">
+    </div>
+</form>
+<% } %>
+<% } %>
+<script src="/js/addBook/addBooks.js"></script>
+<link rel="stylesheet" href="/styles/verifyBook.css">
+

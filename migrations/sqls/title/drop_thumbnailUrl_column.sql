@@ -1,0 +1,1 @@
+alter table title drop column thumbnailURL

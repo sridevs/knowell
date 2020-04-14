@@ -1,0 +1,51 @@
+{
+  "name": "step-library",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "istanbul cover _mocha -- tests/unit/api/**/* -R spec",
+    "migration-test": "node_modules/knex/bin/cli.js migrate:latest --env test",
+    "seed-test": "node_modules/knex/bin/cli.js seed:run --env test",
+    "migration-dev": "node_modules/knex/bin/cli.js migrate:latest --env dev",
+    "seed-dev": "node_modules/knex/bin/cli.js seed:run --env dev",
+    "m-s-s": "npm run migration-dev && npm run seed-dev && npm start",
+    "m-s-t": "npm run migration-dev && npm run seed-dev && npm test"
+  },
+  "author": "step-library",
+  "license": "ISC",
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "body-parser": "^1.17.2",
+    "cloudinary": "^1.9.0",
+    "cookie-parser": "^1.4.3",
+    "csv-parse": "^1.2.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-flash": "0.0.2",
+    "express-layout": "^0.1.0",
+    "express-session": "^1.15.3",
+    "knex": "^0.13.0",
+    "moment": "^2.18.1",
+    "morgan": "^1.8.2",
+    "multer": "^1.3.0",
+    "mysql": "^2.18.1",
+    "node-isbn": "^1.3.0",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^0.1.6",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.0.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.19.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "mock-knex": "^0.3.8",
+    "sinon": "^2.3.2",
+    "supertest": "^3.0.0"
+  }
+}

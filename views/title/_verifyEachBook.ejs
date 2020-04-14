@@ -1,0 +1,62 @@
+<div class="col-md-5" id="book-container">
+    <div class="col-md-2">
+        <div class="add-checkbox">
+            <input type="hidden" name="<%= index %>" value="<%= JSON.stringify(title) %>">
+            <input type="checkbox" class="add-book-checkbox" name="<%= index %>"
+                   id="fancy-checkbox-info-<%- index %>" autocomplete="off"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img alt=":( Sorry Book Image Not Available"
+                 src="<%= title.thumbnailURL || '/images/bookDefault.svg' %>"
+                 class="media-object book-image"
+                 onerror="this.onerror=null; this.src='/images/bookDefault.svg'">
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="media-body">
+                <div class="h5 one-line-truncated text-muted">
+                    <b>Title: </b> <%= title.title %>
+                </div>
+                <div class="h5 one-line-truncated text-muted">
+                    <% if(title.author) { %>
+                    <b>Author: </b> <%= title.author %>
+                    <% }else{ %>
+                    Author not available
+                    <% } %>
+                </div>
+                <div class="h5 one-line-truncated text-muted">
+                    <% if(title.publisher) { %>
+                    <b>Publisher: </b> <%= title.publisher %>
+                    <% }else{ %>
+                    Publisher not available
+                    <% } %>
+                </div>
+                <div class="h5 one-line-truncated text-muted">
+                    <% if(title.isbn) { %>
+                    <b>ISBN:</b> <%= title.isbn %>
+                    <% }else{ %>
+                    ISBN not available
+                    <% } %>
+                </div>
+                <div class="h5 one-line-truncated text-muted">
+                    <% if(title.numOfCopy) { %>
+                    <b>Number of copy:</b> <%= title.numOfCopy %>
+                    <% }else{ %>
+                    numOfCopy not available
+                    <% } %>
+                </div>
+                <div class="h5 one-line-truncated text-muted">
+                    <% if(title.pages) { %>
+                    <b>Pages:</b> <%= title.pages %>
+                    <% }else{ %>
+                    pages not available
+                    <% } %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1"></div>

@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/styles/bookDetails.css">
+<script>
+    $('.recently-added').ready(function () {
+        Library.notifyGlobally('You have added book copies to the library successfully with given tag numbers');
+    });
+</script>
+<div class="row recently-added">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10 background-white">
+        <h1 class="text-center">
+            Added Books
+        </h1>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>
+                    Series
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Tag number
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% tagIds.forEach(function(tagId, index){ %>
+            <%- include _bookCopy.ejs%>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+
+</div>

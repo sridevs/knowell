@@ -1,0 +1,1 @@
+ALTER TABLE title ADD COLUMN thumbnailURL VARCHAR(200)

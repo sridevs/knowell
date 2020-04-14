@@ -1,0 +1,84 @@
+.verify-book {
+    background-color: white;
+}
+
+.header-with-border {
+    color: #a3a3a3;
+    margin-left: 1%;
+}
+
+hr {
+    margin-top: 12px;
+    border-top: 2px solid #ddd;
+    width: 103%;
+    margin-left: -12px;
+}
+
+.keys ul {
+    padding-right: 0px;
+}
+
+.values ul {
+    padding-left: 0px;
+}
+
+ul li {
+    list-style: none;
+}
+ul li h2, h4 {
+    display: inline-block;
+}
+
+ul li h2 {
+    margin: 5px 0 10px 5px;
+    font-weight:600;
+    font-size: 20px;
+}
+
+ul li h4 {
+    margin: 5px 0 17px 5px;
+    font-size: 15px;
+}
+
+.keys {
+    width: 190px;
+    padding-right: 0px;
+}
+
+.values {
+    padding-left: 0px;
+}
+
+.media img {
+    height: 160px;
+    width: 145px;
+    margin-left: 15px;
+}
+.button-container {
+    margin-bottom: 20px;
+}
+
+.button-container .add-button button {
+    background-color: #dfedd6;
+    border: none;
+}
+.button-container .cancel-button button {
+    background-color: #f6a2bf;
+    border: none;
+}
+#submit-all{
+    margin-bottom: 5%;
+}
+
+input{
+    border: none;
+}
+
+.add-book-checkbox{
+    zoom: 2;
+}
+
+.add-checkbox{
+    margin-top: 60px;
+    margin-left: 10px;
+}

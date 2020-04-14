@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/styles/addSingleBook.css">
+<div class="row content">
+    <div class="col-md-3 col-sm-2 col-xs-2"></div>
+    <div class="col-md-6 col-sm-8 col-xs-8">
+        <form autocomplete="off" action="/books/getInfo" method="get" class="form-horizontal" role="form">
+            <div class="form-group" id="isbn-single-book">
+                <label class="col-sm-8" id="isbn-label">
+                    ISBN (Numbers only)
+                </label>
+                <div class="col-sm-12">
+                    <input name="isbn" type="text" id="isbn" onkeypress="return event.charCode >= 48 && event.charCode <= 57" min="1"
+                           class="form-control text-input-box" placeholder="ISBN (i.e 1234567890)">
+                </div>
+            </div>
+            <% if (error) { %>
+            <p id="error-msg">Invalid ISBN: <%=isbn%></p>
+            <% } %>
+            <div class="form-group">
+                <label class="col-sm-8" id="num-of-copies-label">
+                    No. of copies
+                </label>
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <input name="numOfCopy" id="num-of-copies" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                               class="form-control text-input-box" placeholder="Number of copies (i.e 1)">
+                        <div class="input-group-btn">
+                            <button id="up" class="btn btn-default text-input-box" type="button">
+                                <i class="glyphicon glyphicon-chevron-up"></i>
+                            </button>
+                            <button id="down" class="btn btn-default text-input-box" type="button">
+                                <i class="glyphicon glyphicon-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-xs-offset-4 col-sm-6 col-xs-6">
+                    <button id="submit" type="submit" class="btn btn-block text-input-box button-grey" disabled>
+                        Next
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3 col-sm-2 col-xs-2">
+    </div>
+</div>

@@ -1,0 +1,41 @@
+#add-user {
+    margin-top: 0px;
+}
+
+#email-box {
+    margin-top: 67px;
+}
+
+#text-label {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.error-msg {
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: -12px;
+    margin-left: 1%;
+    color: #E34A3B;
+}
+
+.role-selection {
+    font-size: 17px !important;
+}
+
+
+.multiple-user-inputs{
+    height: 45px;
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#upload{
+    margin-top: 20%;
+}
+
+.multiuser-container{
+    margin-top: 10%;
+}

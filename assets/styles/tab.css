@@ -1,0 +1,35 @@
+button#submit {
+    margin: 8% 0 15% 0;
+    height: 40px;
+    width: 70%;
+}
+
+.tab {
+    overflow: hidden;
+    background-color: #ddd;
+    padding: 10px 15px 0px 15px;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    width: 33%;
+    font-weight: 400;
+}
+
+.tab button.active {
+    background-color: #ffffff;
+}
+
+.tabcontent {
+    display: none;
+    padding-top: 2%;
+    background-color: #ffffff;
+    min-height: 472px;
+}

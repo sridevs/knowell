@@ -1,0 +1,20 @@
+form {
+    padding: 10% 0 5% 0;
+}
+
+.tab button {
+    width: 50% !important;
+}
+
+input {
+    height: 45px !important;
+}
+
+#email-label, #tag-number-label{
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#lendBookerror-msg, #receiveBookerror-msg {
+    color: red;
+}

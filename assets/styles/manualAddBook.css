@@ -1,0 +1,106 @@
+#image-container {
+    display: inline-block;
+    background-image: url("../../images/bookDefault.svg");
+    height:200px;
+    width: 145px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: 30px;
+}
+
+#details {
+    display: inline-block;
+    width: 70%;
+}
+
+#image-input {
+    width: 70%;
+}
+
+textarea {
+    border-color: #d7d7d7;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button#submit-manual {
+    margin: 5% 0 0 30%;
+    width: 50%;
+    height: 40px;
+}
+
+.control-label {
+    text-align: center;
+}
+
+.col-md-3 {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+.choose-image-btn {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+#num-of-copies {
+    display: inline;
+}
+
+#num-of-copies-input {
+    display: inline;
+    width: 100%;
+}
+
+#isbn-input {
+    display: inline-block;
+    width: 100%;
+}
+
+#pages-input {
+    margin-left: 15px;
+}
+
+#form-fields {
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 2%;
+}
+
+textarea {
+    resize: none;
+}
+
+.upload-img {
+    height: 25%;
+    width: 30%;
+    margin-top: 45%;
+}
+
+.updated-img {
+    width: 143px;
+    height: 198px;
+}
+
+#image-label {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    border: solid 1px;
+}
+
+.emptyFields {
+    border: solid 1px red;
+}
+
+#remove-img-btn {
+    background-image: url("../../images/cancel.svg");
+    width: 25px;
+    background-color: white;
+    border: none;
+}

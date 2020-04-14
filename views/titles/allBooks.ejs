@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/styles/allBooks.css">
+<div class="row">
+    <div class="toggle-container">
+        <button class="toggle-active hidden-xs" type="button" id="list-toggle" onclick="showListView()"><image
+                    src="/images/list_view.svg"></image></button>
+        <button class="hidden-xs" type="button" id="grid-toggle" onclick="showGridView()"><image
+                    src="/images/grid_view.svg"></image></button>
+    </div>
+</div>
+<div class="row all-books-container hide" id="title-grid-view-container">
+    <% data.forEach(function(title){ %>
+    <%- include _title_grid_view.ejs %>
+    <% }); %>
+</div>
+
+<div class="row all-books-container show" id="title-list-view-container">
+    <% data.forEach(function(title){ %>
+    <%- include _title_list_view.ejs %>
+    <% }); %>
+</div>
+<script src="/js/allBooks/index.js"></script>

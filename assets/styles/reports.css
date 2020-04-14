@@ -1,0 +1,133 @@
+.header-reports {
+    text-align: center;
+}
+
+.no-transaction-message {
+    height: 150px;
+    line-height: 150px;
+    margin: 0px;
+}
+
+.table {
+    margin-bottom: 0px;
+    empty-cells: show;
+}
+.report {
+    text-align: center;
+    max-height: 680px;
+    padding: 0px;
+}
+
+.report table th {
+    text-align: center;
+}
+
+.download-button {
+    margin: 15px 0 15px 0;
+    background: lightgray;
+    color: black;
+    border: none;
+    height: 40px;
+    width: 115px;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    background: dimgray;
+    color: white;
+
+}
+
+#report-data-header {
+    margin-bottom: 0px;
+}
+
+#report-data-rows {
+    overflow-y: auto;
+    max-height: 300px;
+    border-bottom: 1px solid #ddd;
+}
+
+table {
+    table-layout: fixed;
+    word-wrap:break-word;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0;
+}
+
+.table-fixed tbody {
+    height: 285px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.serial-no {
+    width: 5%;
+}
+
+.Title {
+    width: 30%;
+}
+
+.Book-Id {
+    width: 10%;
+}
+
+.User-email {
+    width: 25%;
+}
+
+.Borrowed-on {
+    width: 15%;
+}
+
+.Returned-on {
+    width: 15%;
+}
+
+#history-serial-no {
+    width: 10%;
+}
+
+#history-Title {
+    width: 40%;
+}
+
+#history-Borrowed-on {
+    width: 20%;
+}
+#history-Returned-on {
+    width: 20%;
+}
+
+#holdings-serial-no {
+    width: 5%;
+}
+#holdings-Title {
+    width: 40%;
+}
+#holdings-Returned-on {
+    display: none;
+}
+#holdings-User-email {
+    width: 25%;
+}
+
+#holdings-Borrowed-on{
+    width: 20%;
+}
+
+
+
+

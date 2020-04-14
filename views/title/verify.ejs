@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 verify-book-detail">
+        <img alt="Bootstrap Image Preview" src="<%= book.thumbnailURL || '/images/bookDefault.svg' %>"
+             class="img-thumbnail col-md-4">
+        <dl class="dl-horizontal col-md-8 book-info">
+            <dt>
+                Book Name :
+            </dt>
+            <dd>
+                <%if(book.title) {%>
+                    <%= book.title %>
+                <%} else {%>
+                    <%- include ../partials/showNotAvailable.ejs%>
+                <%}%>
+            </dd>
+            <dt>
+                Author :
+            </dt>
+            <dd>
+                <%if(book.author) {%>
+                    <%= book.author %>
+                <%} else {%>
+                    <%- include ../partials/showNotAvailable.ejs%>
+                <%}%>
+            </dd>
+            <dt>
+                Publisher :
+            </dt>
+            <dd>
+                <%if(book.publisher) {%>
+                    <%= book.publisher %>
+                <%} else {%>
+                    <%- include ../partials/showNotAvailable.ejs%>
+                <%}%>
+            </dd>
+            <dt>
+                Pages :
+            </dt>
+            <dd>
+                <%if(book.pages) {%>
+                    <%= book.pages %>
+                <%} else {%>
+                    <%- include ../partials/showNotAvailable.ejs%>
+                <%}%>
+            </dd>
+            <dt>
+                ISBN :
+            </dt>
+            <dd>
+                <%= book.isbn %>
+            </dd>
+            <dt>
+                No. of copies :
+            </dt>
+            <dd>
+                <%= book.numOfCopy %>
+            </dd>
+            <form action="/books/recentlyAdded" method="post">
+                <input type="hidden" value="<%= book.isbn %>" name="isbn">
+                <input type="hidden" value="<%= book.numOfCopy %>" name="numOfCopy">
+                <div class="col-md-1"></div>
+                <a href="/books/new" class="btn btn-default col-md-3 verify-book-btns button-grey"
+                   role="button">Cancel</a>
+                <div class="col-md-1"></div>
+                <input type="submit" class="btn col-md-3 verify-book-btns button-grey" role="button"
+                       value="Add"></input>
+            </form>
+        </dl>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>

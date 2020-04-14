@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/styles/lendReceive.css">
+<link rel="stylesheet" href="/styles/tab.css">
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="add-book" class="col-md-10">
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" data-id="lend-book">Lend</button>
+            <button class="tablinks" data-id="receive-book">Receive</button>
+        </div>
+
+        <div id="lend-book" class="tabcontent">
+            <%- include('_lendReceivePartial.ejs', {action: 'lendBook'}) %>
+        </div>
+        <div id="receive-book" class="tabcontent">
+            <%- include('_lendReceivePartial.ejs', {action: 'receiveBook'}) %>
+        </div>
+
+        <script src="/js/lendReceive/index.js"></script>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+

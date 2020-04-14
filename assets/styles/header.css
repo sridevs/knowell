@@ -1,0 +1,63 @@
+.header {
+    text-align: left;
+    height: 75px;
+    color: #ffffff;
+    background-color: #3e3e3e;
+    margin: 0 0 0 0;
+    padding-top: 16px;
+}
+
+.header img {
+    vertical-align: baseline;
+    height: 1.8rem;
+    width: 1.5rem;
+}
+
+.header h1 {
+    display: inline;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+}
+
+#library-home {
+    text-decoration: none;
+    margin-left: 4rem;
+}
+
+.logout-icon {
+    float: right;
+    color: white;
+    margin-right: 32px;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.logout-icon:hover {
+    float: right;
+    color: white;
+    margin-right: 32px;
+    margin-left: 10px;
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.float-right {
+    float: right;
+}
+
+.profile-photo {
+    float: left;
+    margin-right: 11px;
+    margin-top: 2px;
+}
+
+img.img-circle {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+#email-id {
+    padding-top: 11px;
+}

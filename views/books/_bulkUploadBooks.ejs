@@ -1,0 +1,29 @@
+<div class="row multibooks-container">
+    <div class="col-md-2 col-sm-2 col-xs-2"></div>
+    <div class="col-md-6 col-sm-8 col-xs-8">
+        <form autocomplete="off" action="/books/bulkUpload" enctype="multipart/form-data" method="post" class="form-horizontal">
+            <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="multiple-book-inputs btn btn-primary">
+                        Browse&hellip; <input name="books_file" id="input-bulk-upload" type="file" style="display: none;" accept="text/csv" max="1" max-file-size=1000 >
+                    </span>
+                </label>
+                <input id="file-name" type="text" class="multiple-book-inputs form-control" readonly>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-xs-offset-4 col-sm-6 col-xs-6">
+                    <button name="submit"  id="upload" type="submit" class="multiple-book-inputs btn btn-block button-grey" disabled>
+                        Next
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3 col-sm-2 col-xs-2">
+        <a href="/csvTemplates/isbn.csv" download>
+            <button type="button" class="btn btn-default btn-sm multiple-book-inputs">
+                <span class="glyphicon glyphicon-download-alt"></span> Download template
+            </button>
+        </a>
+    </div>
+</div>

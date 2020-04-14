@@ -1,0 +1,46 @@
+thead > tr > th {
+    border: 1px solid #ddd !important;
+}
+
+.table-fixed tbody {
+    overflow-y: auto;
+    width: 100%;
+}
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr > th {
+    float: left;
+    border-bottom-width: 0;
+}
+
+tbody > tr > td, thead > tr > th {
+    text-align: center;
+}
+
+.id {
+    width: 10%;
+}
+
+.email {
+    width: 70%;
+}
+
+.select {
+    width: 20%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.messages {
+    margin-top: 1%;
+}
+
+.submit-btn {
+    text-align: center;
+    margin-bottom: 10%;
+}

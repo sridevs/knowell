@@ -1,0 +1,119 @@
+#book-container {
+    background: #ffffff;
+    margin-bottom: 2%;
+    padding: 10px;
+}
+
+#book-container h3{
+    color: black;
+}
+.media {
+    text-align: center;
+    background-color: #fff;
+}
+
+@media only screen and (max-width: 991px) {
+    #book-container{
+        text-align: center;
+    }
+}
+.availability {
+    font-size: 12px;
+    font-weight: 200;
+}
+.media-object {
+    display: inline-block;
+    border: 1px solid lightgray;
+    padding: 2px;
+}
+
+.well {
+    padding: 19px 19px 10px 19px;
+}
+
+.toggle-container button{
+    background-color: white;
+    width: 50px;
+    height: 30px;
+    border: none;
+}
+
+.toggle-container button:focus {
+    outline: none;
+}
+
+.toggle-active {
+    background-color: #a3a3a3 !important;
+}
+.all-books-container {
+    margin-top: 30px;
+}
+.toggle-container {
+    top: 135px;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 200;
+    background-color: #f4f4f4;
+    overflow: visible;
+    height: 43px;
+    padding-top: 5px;
+    text-align: right;
+    padding-right: 7rem;
+}
+
+@media only screen and (max-width: 991px) {
+    .toggle-container{
+        text-align: center;
+        padding-right: 0rem;
+    }
+}
+.media-body {
+    padding: 5px 0 5px 0;
+}
+
+.book-author {
+    font-size: 12px;
+    color: #868686;
+}
+.btn {
+    width: 100%;
+}
+
+.btn-submit {
+    border: none;
+    border-radius: 2px;
+    background-color: #CBE8BA;
+}
+
+.book-title {
+    color: black;
+    font-size: 15px;
+}
+.return-my-books{
+    text-align: center;
+    height: 150px;
+    line-height: 150px;
+    margin-top: 0px;
+}
+
+.toggle-container img{
+    height: 13px;
+}
+
+#book-title {
+    height: 21px;
+}
+
+#book-author {
+    height: 17px;
+}
+
+.button-return {
+    width: 25%;
+    margin-top: 28px;
+}
+
+.read-label {
+    color: black;
+}

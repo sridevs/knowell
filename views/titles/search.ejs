@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/styles/searchBook.css">
+<link rel="stylesheet" href="/styles/allBooks.css">
+<div class="search-box" id="adv-search">
+    <form action="/books/search" method="get" id="search-title-form" onsubmit="return verifySearchText()">
+        <input type="text" class="form-control" id="search-bar" placeholder="Search book by title, author, publisher"
+               name="searchText" value="<%= searchText %>" autofocus="autofocus" onfocus="this.value = this.value;"/>
+        <button type="submit" class="btn btn-primary" id="search-title-btn">
+            <span class="glyphicon glyphicon-search" id="search-icon" aria-hidden="true"></span>
+        </button>
+    </form>
+
+    <div class="checkbox-container">
+        <input type="checkbox" name="tag-number" id="search-by-tag-number" onchange="toggleCheckbox()">
+        <label for="search-by-tag-number">Search by book id. </label>
+    </div>
+</div>
+<%if (data) { %>
+    <%isBookNotFound=true%>
+    <%for(field in data) {
+        if (data[field].length) {%>
+            <%isBookNotFound=false%>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <hr id="hr-line">
+                <h3 id="title-bucket">Showing <%= data[field].length%> book(s) with matching <%=field%> : '<%=searchText%>'</h3>
+            </div>
+            <%data[field].forEach(function (title) {%>
+                <%- include ./_title_list_view.ejs%>
+        <%}
+        )}
+    }
+    if (isBookNotFound) { %>
+        <h3>No search results found for '<%=searchText%>'</h3>
+    <%}
+}%>
+
+<script src="/js/search/title.js"></script>
