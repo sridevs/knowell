@@ -65,7 +65,7 @@ describe('interactor', function () {
                 isbn: '678910',
                 author: 'EFG',
                 publisher: 'PK publisher',
-                available: true,
+                available: false,
                 description: 'Description',
                 thumbnailURL: 'http://sampleurl/image.jpg',
                 pages: 20,
@@ -270,7 +270,7 @@ describe('interactor', function () {
                     isbn: '678910',
                     author: 'EFG',
                     publisher: 'PK publisher',
-                    available: true,
+                    available: false,
                     description: 'Description',
                     thumbnailURL: 'http://sampleurl/image.jpg',
                     pages: 20
