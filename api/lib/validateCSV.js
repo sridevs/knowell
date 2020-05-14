@@ -1,6 +1,12 @@
 const Parse = require('csv-parse');
 const fs = require('fs');
 
+function errorCallBack() {
+  return function (err) {
+    if (err) console.log('error', err);
+  };
+}
+
 module.exports = {
   validate: (filePath, callback) => {
     let data = {books: {}, error: null};
@@ -41,7 +47,7 @@ module.exports = {
     });
     source.pipe(parser);
   },
-  
+
   parseBody: (req, res, next) => {
     let result = [];
     let body = req.body;
@@ -53,7 +59,7 @@ module.exports = {
     req.body = result;
     next();
   },
-  
+
   parseUsersCSV: (filePath) => {
     return new Promise((resolve, reject) => {
       let data = {emails: {}};
@@ -72,12 +78,12 @@ module.exports = {
         }
       });
       parser.on("error", error => {
-        fs.unlink(filePath);
+        fs.unlink(filePath, errorCallBack);
         data.error = error.message;
         resolve(data);
       });
       parser.on("end", () => {
-        fs.unlink(filePath);
+        fs.unlink(filePath, errorCallBack);
         resolve(data);
       });
       source.pipe(parser);

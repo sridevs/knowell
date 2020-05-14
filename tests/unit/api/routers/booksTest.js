@@ -13,6 +13,13 @@ let bodyParser = require('body-parser');
 let fs = require('fs');
 
 describe('BookRoute', () => {
+
+  function errorCallback() {
+    return function (err) {
+      if (err) console.log('error', err);
+    };
+  }
+
   beforeEach(() => {
     let librarianOnly = sinon.stub(authorize, 'librarianOnly');
     librarianOnly.callsArg(2, 2);
@@ -35,7 +42,9 @@ describe('BookRoute', () => {
   afterEach(() => {
     authorize.librarianOnly.restore();
     authorize.borrowerOnly.restore();
-    if(fs.existsSync('test.csv')) fs.unlink('test.csv');
+    if(fs.existsSync('test.csv')) fs.unlink('test.csv', function(err, result) {
+      if(err) console.log('error', err);
+    });
   });
 
   it('should get books', (done) => {
@@ -130,8 +139,8 @@ describe('BookRoute', () => {
         .end((err, res) => {
           if (err) throw err;
           expect(res.text).contain('1-1');
-          res.should.have.property('text');
-          res.redirect.should.be.equal(false);
+          expect(res.hasOwnProperty('text')).equal(true);
+          expect(res.redirect).equal(false);
           interactor.returnBook.restore();
           done();
         });
@@ -243,7 +252,7 @@ describe('BookRoute', () => {
       .expect(200)
       .end((err, res) => {
         if (err) throw err;
-        res.should.have.property('redirect');
+        expect(res.hasOwnProperty('redirect')).equal(true);
         expect(res.text).contain('/books/fetchImage?isbn=1');
         expect(res.text).contain('title');
         expect(res.text).contain('Author');
@@ -679,7 +688,7 @@ describe('BookRoute', () => {
           expect(res.text).contain('http://sampleurl/image1.jpg');
           expect(res.text).contain('Unable to find <b>1</b> ISBN(s). download CSV from');
           interactor.fetchAllBooksInfo.restore();
-          fs.unlink('test.csv');
+          fs.unlink('test.csv', errorCallback);
           done();
         });
     });
@@ -714,7 +723,7 @@ describe('BookRoute', () => {
           expect(res.error.message).contain('cannot POST /books/bulkUpload (400)');
           expect(res.text).contain('Invalid format, header should be in (isbn,numOfCopy)');
           interactor.fetchAllBooksInfo.restore();
-          fs.unlink('test.csv');
+          fs.unlink('test.csv',errorCallback);
           done();
         });
     })

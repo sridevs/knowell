@@ -4,8 +4,6 @@ const chai = require('chai');
 const assert = require('assert');
 const should = chai.should();
 const sinon = require("sinon");
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
 
 describe('ValidateCSV', function () {
   describe('validate', function () {
@@ -126,23 +124,23 @@ describe('ValidateCSV', function () {
   });
 
   describe('parseUsersCSV', () => {
-    it('should validate users', async(() => {
+    it('should validate users', async () => {
       let fs = require('fs');
-      fs.writeFileSync('users.csv', 'email\na.thoughtworks.com', 'utf8');
-      let users = await(validateCSV.parseUsersCSV('users.csv'));
+      await fs.writeFileSync('users.csv', 'email\na.thoughtworks.com', 'utf8');
+      let users = await validateCSV.parseUsersCSV('users.csv');
       let expected = { emails: { 'a.thoughtworks.com': true } };
-      assert.deepEqual(users, expected);
-    }));
+      assert.deepStrictEqual(users, expected);
+    })
 
-    it('should throw error if file header is invalid', async(() => {
+    it('should throw error if file header is invalid', async () => {
       let fs = require('fs');
       fs.writeFileSync('users.csv', 'emails\na.thoughtworks.com', 'utf8');
       try {
-        let users = await(validateCSV.parseUsersCSV('users.csv'));
+        let users = await validateCSV.parseUsersCSV('users.csv');
       }catch (e){
         assert.equal(e.constructor, Error);
         assert.equal(e.message, 'Invalid Format');
       }
-    }));
+    });
   })
 });

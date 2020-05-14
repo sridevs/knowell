@@ -1,6 +1,5 @@
 const baseUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
 const cloudinary = require('cloudinary');
-const async = require('asyncawait/async');
 let https = require('https');
 let node_isbn = require('node-isbn');
 
@@ -35,7 +34,7 @@ const addImageToCdn = (thumbnailFromApi, title) => {
   }, {public_id: title.replace(/ /g, "_").replace(/[^a-zA-Z ]/g, "")});
 };
 
-const getFromGoogle = async(isbn => {
+const getFromGoogle = async isbn => {
   return new Promise((resolve, reject) => {
     let response = '';
     https.get(baseUrl + isbn + '&key=' + process.env.GOOGLE_API_KEY , res => {
@@ -46,14 +45,14 @@ const getFromGoogle = async(isbn => {
           let result = parseBookDetails(books.items[0].volumeInfo);
           if(result.constructor === Error) reject(result);
           else resolve(result);
-        } 
+        }
         else reject(new Error('book not found'));
       });
     }).on('error', (e) => reject(e));
   });
-});
+};
 
-const fetchFromNodeIsbn = async(isbn => {
+const fetchFromNodeIsbn = async isbn => {
   return new Promise((resolve, reject ) => {
     node_isbn.resolve(isbn, (err, bookDetails) => {
       if (err) reject(err);
@@ -64,7 +63,7 @@ const fetchFromNodeIsbn = async(isbn => {
       }
     });
   });
-});
+};
 
 module.exports = {
   addImageToCdn: addImageToCdn,

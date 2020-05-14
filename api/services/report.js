@@ -1,6 +1,4 @@
 'use strict';
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
 const knex = require('../../db/knex');
 const moment = require('moment');
 
@@ -25,27 +23,27 @@ const formatDates = eachReport => {
     return eachReport;
 };
 
-reports.getDetails = async(() => {
-    return await(knex.column(reportsColumns.TITLE, reportsColumns.TAG_NUMBER, reportsColumns.USER_EMAIL, reportsColumns.BORROW_DATE, reportsColumns.RETURN_DATE)
+reports.getDetails = async () => {
+    return await knex.column(reportsColumns.TITLE, reportsColumns.TAG_NUMBER, reportsColumns.USER_EMAIL, reportsColumns.BORROW_DATE, reportsColumns.RETURN_DATE)
         .select()
         .from('transaction')
         .join('book', {'book.id': 'transaction.book_id'})
         .join('title', {'title.id': 'book.title_id'})
         .join('user', {'user.id': 'transaction.user_id'})
-        .orderBy('transaction.borrow_date', 'desc'))
+        .orderBy('transaction.borrow_date', 'desc')
         .map(formatDates);
-});
+};
 
-reports.getHistoryByUserId = async((userId) => {
-    return await(knex.column(reportsColumns.TITLE, reportsColumns.TAG_NUMBER, reportsColumns.BORROW_DATE, reportsColumns.RETURN_DATE)
+reports.getHistoryByUserId = async (userId) => {
+    return await knex.column(reportsColumns.TITLE, reportsColumns.TAG_NUMBER, reportsColumns.BORROW_DATE, reportsColumns.RETURN_DATE)
         .select()
         .from('transaction')
         .join('book', {'book.id': 'transaction.book_id'})
         .join('title', {'title.id': 'book.title_id'})
         .where({user_id: userId})
         .whereNot({return_date: null})
-        .orderBy('transaction.return_date', 'desc'))
+        .orderBy('transaction.return_date', 'desc')
         .map(formatDates);
-});
+};
 
 module.exports = reports;

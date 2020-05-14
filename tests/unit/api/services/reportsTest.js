@@ -1,12 +1,7 @@
 'use strict';
 process.env.NODE_ENV = 'test';
 process.env.APP_ROOT = process.cwd();
-var moment = require('moment');
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
-const chai = require('chai');
 const assert = require('assert');
-const should = chai.should();
 const knex = require('../../../../db/knex');
 const report = require('../../../../api/services/report');
 
@@ -23,7 +18,7 @@ describe('Reports', function () {
           .then(() => done());
     });
 
-    it('should return history for given user id', async(() => {
+    it('should return history for given user id', async () => {
         await(insertInTransactionTable());
         const userId = 1;
 
@@ -42,18 +37,18 @@ describe('Reports', function () {
 
         const actual = await(report.getHistoryByUserId(userId));
         assert.deepEqual(actual, expected);
-    }));
+    });
 
-    it('should return empty list given user id if user does not have history', async(() => {
+    it('should return empty list given user id if user does not have history', async () => {
         const userId = 2;
 
         const actual = await(report.getHistoryByUserId(userId));
-        actual.length.should.equal(0)
-    }));
+        assert.strictEqual(actual.length,0)
+    });
 });
 
 
-const insertInTransactionTable = async(() => {
+const insertInTransactionTable = async () => {
     await(knex('transaction').insert([
         {
             book_id: 3,
@@ -72,4 +67,4 @@ const insertInTransactionTable = async(() => {
             return_by: 1
         }
     ]))
-});
+};

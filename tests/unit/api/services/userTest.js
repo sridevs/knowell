@@ -2,14 +2,9 @@
 
 process.env.NODE_ENV = 'test';
 process.env.APP_ROOT = process.cwd();
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
 const knex = require('../../../../db/knex');
 const user = require('../../../../api/services/user');
 const assert = require('assert');
-const chai = require('chai');
-const should = chai.should();
-
 
 describe('user', function () {
   beforeEach(done => {
@@ -19,7 +14,7 @@ describe('user', function () {
       .then(() => done());
   });
 
-  it('should find user by email', async(() => {
+  it('should find user by email', async () => {
     let email = 'admin@domain.com';
     let expected = {
       id: 1,
@@ -31,11 +26,11 @@ describe('user', function () {
       name: null,
       image: null
     };
-    let actual = await(user.findUserBy(email));
-    assert.deepEqual(expected, actual);
-  }));
+    let actual = await user.findUserBy(email);
+    assert.deepStrictEqual(expected, actual);
+  });
 
-  it('should arrange the user details', async(() => {
+  it('should arrange the user details', async () => {
     let userInfo = {
       id: 1,
       email: 'borrower@domain.com',
@@ -60,9 +55,9 @@ describe('user', function () {
     };
     let actual = user.arrangeUser(userInfo);
     assert.deepEqual(expected, actual);
-  }));
+  });
 
-  it('getAllUserDetails should get all the users details', async(() => {
+  it('getAllUserDetails should get all the users details', async () => {
     let expectedData = [{
       id: 1,
       email: 'admin@domain.com',
@@ -90,11 +85,11 @@ describe('user', function () {
         isAdmin: 0,
         name: null
       }];
-    let actualData = await(user.getAllUserDetails());
+    let actualData = await user.getAllUserDetails();
     assert.deepEqual(actualData, expectedData);
-  }));
+  });
 
-  it('updateUserStatus should block a user', async(() => {
+  it('updateUserStatus should block a user', async () => {
     let userEmail = 'admin@domain.com';
     let expected = [{
       id: 1,
@@ -106,11 +101,11 @@ describe('user', function () {
       name: null,
       image: null
     }];
-    let actualData = await(user.updateUserStatus(userEmail, {'enabled': 0}));
+    let actualData = await user.updateUserStatus(userEmail, {'enabled': 0});
     assert.deepEqual(actualData, expected);
-  }));
+  });
 
-  it('updateUserStatus should unblock a user', async(() => {
+  it('updateUserStatus should unblock a user', async () => {
     let userEmail = 'disabled@domain.com';
     let expected = [{
       id: 3,
@@ -123,11 +118,11 @@ describe('user', function () {
       image: null
     }];
 
-    let actualData = await(user.updateUserStatus(userEmail, {'enabled': 1}));
+    let actualData = await user.updateUserStatus(userEmail, {'enabled': 1});
     assert.deepEqual(actualData, expected);
-  }));
+  });
 
-  it('updateUserStatus should remove borrower privilage', async(() => {
+  it('updateUserStatus should remove borrower privilage', async () => {
     let userEmail = 'librarian@domain.com';
     let expected = [{
       id: 2,
@@ -140,11 +135,11 @@ describe('user', function () {
       image: null
     }];
 
-    let actualData = await(user.updateUserStatus(userEmail, {'isBorrower': 0}));
+    let actualData = await user.updateUserStatus(userEmail, {'isBorrower': 0});
     assert.deepEqual(actualData, expected);
-  }));
+  });
 
-  it('updateUserStatus should add admin privilage', async(() => {
+  it('updateUserStatus should add admin privilage', async () => {
     let userEmail = 'librarian@domain.com';
     let expected = [{
       id: 2,
@@ -156,11 +151,11 @@ describe('user', function () {
       name: null,
       image: null
     }];
-    let actualData = await(user.updateUserStatus(userEmail, {'isAdmin': 1}));
+    let actualData = await user.updateUserStatus(userEmail, {'isAdmin': 1});
     assert.deepEqual(actualData, expected);
-  }));
+  });
 
-  it('updateUserStatus should add librarian privilage', async(() => {
+  it('updateUserStatus should add librarian privilage', async () => {
     let userEmail = 'admin@domain.com';
     let expected = [{
       id: 1,
@@ -172,11 +167,11 @@ describe('user', function () {
       name: null,
       image: null
     }];
-    let actualData = await(user.updateUserStatus(userEmail, {'isLibrarian': 1}));
+    let actualData = await user.updateUserStatus(userEmail, {'isLibrarian': 1});
     assert.deepEqual(actualData, expected);
-  }));
+  });
 
-  it('should add a user with only admin role', async(() => {
+  it('should add a user with only admin role', async () => {
     const userDetails = {
       email: 'user1@thoughtworks.com',
       isAdmin: '1',
@@ -184,8 +179,8 @@ describe('user', function () {
       isBorrower: '0',
       isLibrarian: '0'
     };
-    await(user.add(knex, userDetails));
-    const expected = await(knex.select('*').from('user').where({email: 'user1@thoughtworks.com'}))[0];
+    await user.add(knex, userDetails);
+    const expected = await knex.select('*').from('user').where({email: 'user1@thoughtworks.com'});
     const actualResult = {
       'id': 4,
       'email': 'user1@thoughtworks.com',
@@ -197,10 +192,10 @@ describe('user', function () {
       'image': null
     };
 
-    assert.deepEqual(actualResult, expected);
-  }));
+    assert.deepEqual(actualResult, expected[0]);
+  });
 
-  it('should add a user with only borrower role', async(() => {
+  it('should add a user with only borrower role', async () => {
     const userDetails = {
       email: 'user1@thoughtworks.com',
       isAdmin: '0',
@@ -208,8 +203,8 @@ describe('user', function () {
       isBorrower: '1',
       isLibrarian: '0'
     };
-    await(user.add(knex, userDetails));
-    const expected = await(knex.select('*').from('user').where({email: 'user1@thoughtworks.com'}))[0];
+    await user.add(knex, userDetails);
+    const expected = await knex.select('*').from('user').where({email: 'user1@thoughtworks.com'});
     const actualResult = {
       'id': 4,
       'email': 'user1@thoughtworks.com',
@@ -221,10 +216,10 @@ describe('user', function () {
       'image': null
     };
 
-    assert.deepEqual(actualResult, expected);
-  }));
+    assert.deepEqual(actualResult, expected[0]);
+  });
 
-  it('should add a user with only librarian and borrower role though only librarian role is given', async(() => {
+  it('should add a user with only librarian and borrower role though only librarian role is given', async () => {
     const userDetails = {
       email: 'user1@thoughtworks.com',
       isAdmin: '0',
@@ -233,8 +228,8 @@ describe('user', function () {
       isLibrarian: '1',
       image: null
     };
-    await(user.add(knex, userDetails));
-    const expected = await(knex.select('*').from('user').where({email: 'user1@thoughtworks.com'}))[0];
+    await user.add(knex, userDetails);
+    const expected = await knex.select('*').from('user').where({email: 'user1@thoughtworks.com'});
     const actualResult = {
       'id': 4,
       'email': 'user1@thoughtworks.com',
@@ -246,10 +241,10 @@ describe('user', function () {
       'image': null
     };
 
-    assert.deepEqual(actualResult, expected);
-  }));
+    assert.deepEqual(actualResult, expected[0]);
+  });
 
-  it('should add a user with all roles', async(() => {
+  it('should add a user with all roles', async () => {
     const userDetails = {
       email: 'user1@thoughtworks.com',
       isAdmin: '1',
@@ -258,8 +253,8 @@ describe('user', function () {
       isLibrarian: '1',
       image: null
     };
-    await(user.add(knex, userDetails));
-    const expected = await(knex.select('*').from('user').where({email: 'user1@thoughtworks.com'}))[0];
+    await user.add(knex, userDetails);
+    const expected = await knex.select('*').from('user').where({email: 'user1@thoughtworks.com'});
     const actualResult = {
       'id': 4,
       'email': 'user1@thoughtworks.com',
@@ -271,8 +266,8 @@ describe('user', function () {
       'image': null
     };
 
-    assert.deepEqual(actualResult, expected);
-  }));
+    assert.deepEqual(actualResult, expected[0]);
+  });
 
   it('should be able to find out the invalid user', () => {
     assert.equal(user.isNotValid('user1@gmail.com'), true);
@@ -305,7 +300,7 @@ describe('user', function () {
     assert.equal(user.hasNoRole(userDetails), false);
   });
 
-  it('should add all users whose details are given', async(() => {
+  it('should add all users whose details are given', async () => {
     const userDetailsList = [
       {
         email: 'user1@thoughtworks.com',
@@ -323,10 +318,10 @@ describe('user', function () {
         isLibrarian: '0'
       }
     ];
-    await(user.addAll(userDetailsList));
+    await user.addAll(userDetailsList);
 
-    userDetailsList.forEach(userDetails => {
-      assert.notEqual(await(user.findUserBy(userDetails.email)), undefined);
+    userDetailsList.forEach(async userDetails => {
+      assert.notEqual(await user.findUserBy(userDetails.email), undefined);
     });
-  }));
+  });
 });
