@@ -20,6 +20,7 @@ jobs:
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: library_test
+          MYSQL_HOST: 127.0.0.1
           MYSQL_USER: knowell
           MYSQL_PASSWORD:
     steps:
@@ -32,7 +33,7 @@ jobs:
             curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
             bash nodesource_setup.sh
             apt-get -y install nodejs
-            npm run m-s-t
+            npm i && npm run m-s-t
 
     environment:
       - ENV: test
