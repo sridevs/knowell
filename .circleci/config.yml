@@ -1,24 +1,42 @@
 version: 2
 jobs:
-  build:
+  'hawkeye':
     docker:
-      - image: docker:stable
+      - image: hawkeyesec/scanner-cli
     steps:
       - run:
-          command: echo "here goes your build steps"
-
+          name: Setup for hawkeye scan
+          command: mkdir -p /tmp/artifacts/
+      - checkout
+      - run:
+          name: Run Hawkeye Scan
+          command: hawkeye scan --all --target ./ --fail-on critical --json /tmp/artifacts/hawkeye-findings.json
+      - store_artifacts:
+          path: /tmp/artifacts
   tests:
+    working_directory: ~/repo
     docker:
-      - image: docker:stable
+      - image: circleci/mysql:8
+        environment:
+          MYSQL_ROOT_PASSWORD: rootpw
+          MYSQL_DATABASE: library_test
+          MYSQL_USER: knowell
+          MYSQL_PASSWORD:
     steps:
       - run:
-          command: echo "here goes your tests steps"
+          name: Running tests
+          command: |
+            apt-get update
+            apt-get -y install node
+            apt-get -y install npm
+            npm run m-s-t
+
+    environment:
+      - ENV: test
 
 workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build
-      - tests:
-          requires:
-            - build
+      - hawkeye
+      - tests

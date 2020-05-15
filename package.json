@@ -12,7 +12,7 @@
     "migration-dev": "node_modules/knex/bin/cli.js migrate:latest --env dev",
     "seed-dev": "node_modules/knex/bin/cli.js seed:run --env dev",
     "m-s-s": "npm run migration-dev && npm run seed-dev && npm start",
-    "m-s-t": "npm run migration-dev && npm run seed-dev && npm test"
+    "m-s-t": "npm run migration-test && npm run seed-test && npm test"
   },
   "author": "step-library",
   "license": "ISC",
