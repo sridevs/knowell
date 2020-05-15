@@ -23,12 +23,15 @@ jobs:
           MYSQL_USER: knowell
           MYSQL_PASSWORD:
     steps:
+      - checkout
       - run:
           name: Running tests
           command: |
             apt-get update
+            apt-get -y curl
+            curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
+            bash nodesource_setup.sh
             apt-get -y install nodejs
-            apt-get -y install npm
             npm run m-s-t
 
     environment:
