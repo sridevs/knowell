@@ -28,7 +28,7 @@ jobs:
           name: Running tests
           command: |
             apt-get update
-            apt-get -y curl
+            apt-get -y install curl
             curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
             bash nodesource_setup.sh
             apt-get -y install nodejs
