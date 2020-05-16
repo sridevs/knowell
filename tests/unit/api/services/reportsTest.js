@@ -37,7 +37,7 @@ describe('Reports', function () {
 
         const actual = await(report.getHistoryByUserId(userId));
         assert.deepEqual(actual, expected);
-    });
+    }).timeout(5000);
 
     it('should return empty list given user id if user does not have history', async () => {
         const userId = 2;

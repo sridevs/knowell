@@ -153,7 +153,7 @@ describe('user', function () {
     }];
     let actualData = await user.updateUserStatus(userEmail, {'isAdmin': 1});
     assert.deepEqual(actualData, expected);
-  });
+  }).timeout(5000);
 
   it('updateUserStatus should add librarian privilage', async () => {
     let userEmail = 'admin@domain.com';

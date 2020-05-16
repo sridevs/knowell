@@ -553,7 +553,7 @@ describe('interactor', function () {
         ];
         const result = (await interactor.updateUser(userEmail, {'enabled': 0})).data;
         assert.deepEqual(result, expectedData);
-    });
+    }).timeout(5000);
 
     it('updateUser should return the updated user details while taking out borrower privilage', async () => {
         const userEmail = "admin@domain.com";

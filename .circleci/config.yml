@@ -45,7 +45,8 @@ jobs:
           apt-get -y install ansible
           ansible-playbook -v deploy.yml --connection=local
           gcloud app deploy -v knowell-staging --quiet
-
+    environment:
+      - ENV: staging
 
 workflows:
   version: 2
