@@ -16,23 +16,16 @@ jobs:
   tests:
     working_directory: ~/repo
     docker:
-      - image: circleci/mysql:8
-        environment:
-          MYSQL_ROOT_PASSWORD: rootpw
-          MYSQL_DATABASE: library_test
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: knowell
-          MYSQL_PASSWORD:
+      - image: circleci/node:11
     steps:
       - checkout
       - run:
           name: Running tests
           command: |
-            apt-get update
-            apt-get -y install curl
-            curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh
-            bash nodesource_setup.sh
-            apt-get -y install nodejs
+            sudo apt-get update
+            sudo apt-get -y install mysql-server
+            sudo service mysql start
+            sudo sh .setup.sh
             npm i && npm run m-s-t
 
     environment:
