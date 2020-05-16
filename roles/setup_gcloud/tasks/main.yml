@@ -1,0 +1,14 @@
+---
+
+- name: Set project id
+  shell:  gcloud config set project {{ google_project_id }}
+  args:
+    chdir: /
+  register: configure_project_id
+
+- name: Set compute zone
+  shell:  gcloud config set compute/zone {{ google_compute_zone }}
+  args:
+    chdir: /
+  register: configure_compute_zone
+

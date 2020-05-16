@@ -1,9 +1,10 @@
-let localConfig = require('./config/local');
-let prodConfig = require('./config/prod');
+const localConfig = require('./config/local');
+const stagingConfig = require('./config/staging');
+const prodConfig = require('./config/prod');
 
 module.exports = {
-    test: localConfig.test,
-    dev: localConfig.dev,
-    qa: localConfig.qa,
-    prod: prodConfig
+	test: localConfig.test,
+	dev: localConfig.dev,
+	staging: stagingConfig,
+	prod: prodConfig
 };

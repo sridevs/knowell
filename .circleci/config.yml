@@ -31,9 +31,29 @@ jobs:
     environment:
       - ENV: test
 
+  deploy-staging:
+    working-directory: ~/repo
+    docker:
+      - image: google/cloud-sdk:286.0.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: |
+          echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
+          apt-get update
+          apt-get -y install ansible
+          ansible-playbook -v deploy.yml --connection=local
+          gcloud app deploy -v knowell-staging --quiet
+
+
 workflows:
   version: 2
   build-test-deploy:
     jobs:
       - hawkeye
       - tests
+      - deploy-staging:
+          requires:
+            - hawkeye
+            - tests

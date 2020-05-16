@@ -1,0 +1,10 @@
+---
+- name: Set up app yaml file
+  template:
+    src=app.yaml.j2
+    dest=/root/project/app.yaml
+
+- name: Set up environment variable
+  template:
+    src=env.yaml.j2
+    dest=/root/project/env.yaml

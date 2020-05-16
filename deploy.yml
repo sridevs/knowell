@@ -1,0 +1,17 @@
+---
+
+- hosts: 127.0.0.1
+  user: ansible
+  become: true
+  vars:
+    google_project_id: "{{ lookup('env', 'GOOGLE_PROJECT_ID') }}"
+    google_compute_zone: "{{ lookup('env', 'GOOGLE_COMPUTE_ZONE') }}"
+    cloud_sql_connection_name: "{{ lookup('env', 'CLOUD_SQL_CONNECTION_NAME') }}"
+    db_name: "{{ lookup('env', 'DB_NAME') }}"
+    db_password: "{{ lookup('env', 'DB_PASSWORD') }}"
+    db_user: "{{ lookup('env', 'DB_USER') }}"
+
+
+  roles:
+    - setup_gcloud
+    - deploy
