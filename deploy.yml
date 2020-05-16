@@ -11,6 +11,8 @@
     db_password: "{{ lookup('env', 'DB_PASSWORD') }}"
     db_user: "{{ lookup('env', 'DB_USER') }}"
     node_env: "{{ lookup('env', 'ENV') }}"
+    o_auth_client_id: "{{ lookup('env', 'O_AUTH_CLIENT_ID') }}"
+    o_auth_client_secret: "{{ lookup('env', 'O_AUTH_CLIENT_SECRET') }}"
 
 
   roles:
