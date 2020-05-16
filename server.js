@@ -4,7 +4,7 @@ let handler = require('./api/routers/router');
 
 let server = http.createServer(handler);
 
-server.listen(4000, (err) => {
+server.listen(8080, (err) => {
     if(err) return console.log('Something went wrong while booting server');
-    console.log('listening at 4000..');
+    console.log('listening at 8080..');
 });
