@@ -59,7 +59,7 @@ app.use(passport.session());
 
 let logFormat = 'Request From: :remote-addr, User Agent: [:user-agent], TimeStamp: [:date], User: :remote-user, URL: :method :url, Status: :status, Response Time: :response-time ms'
 
-let logStream = fs.createWriteStream('./logs/access.log', {flags: 'a'})
+let logStream = fs.createWriteStream('/tmp/access.log', {flags: 'a'})
 
 app.use(morgan(logFormat,{stream:logStream}));
 app.use(morgan(logFormat));
