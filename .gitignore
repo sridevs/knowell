@@ -4,7 +4,7 @@ npm-debug.log
 .DS_Store/
 step-library.iml
 .tmp/
-logs/
+logs/access.log
 views/layouts/*
 tmp/upload/*.jpg
 .vagrant
