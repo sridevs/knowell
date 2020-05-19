@@ -15,6 +15,7 @@
     o_auth_client_secret: "{{ lookup('env', 'O_AUTH_CLIENT_SECRET') }}"
     okta_domain: "{{ lookup('env', 'OKTA_DOMAIN')}}"
     logout_redirect_uri: "{{ lookup('env', 'LOGOUT_REDIRECT_URI')}}"
+    app_base_url: "{{ lookup('env', 'APP_BASE_URL')}}"
 
 
   roles:
