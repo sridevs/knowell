@@ -1,4 +1,7 @@
 runtime: nodejs10
 entrypoint: npm run big-bang
+instance_class: F1
+automatic_scaling:
+  max_instances: 11
 includes:
   - env.yaml
