@@ -1,250 +1,26 @@
 [
   {
     "book_id": 278,
-    "user_id": 15,
+    "user_id": 1,
     "borrow_date": "2015-08-01 14:13:59.155353",
     "return_date": null,
-    "issue_by": 15,
+    "issue_by": 1,
     "return_by": null
   },
   {
     "book_id": 279,
-    "user_id": 52,
+    "user_id": 1,
     "borrow_date": "2015-08-18 14:48:04.946607",
     "return_date": null,
-    "issue_by": 52,
+    "issue_by": 1,
     "return_by": null
   },
   {
     "book_id": 291,
-    "user_id": 28,
+    "user_id": 1,
     "borrow_date": "2015-09-16 07:32:54.842176",
     "return_date": null,
-    "issue_by": 28,
-    "return_by": null
-  },
-  {
-    "book_id": 237,
-    "user_id": 32,
-    "borrow_date": "2016-01-08 14:56:47.265772",
-    "return_date": null,
-    "issue_by": 32,
-    "return_by": null
-  },
-  {
-    "book_id": 63,
-    "user_id": 34,
-    "borrow_date": "2016-02-26 15:40:12.154172",
-    "return_date": null,
-    "issue_by": 34,
-    "return_by": null
-  },
-  {
-    "book_id": 168,
-    "user_id": 36,
-    "borrow_date": "2016-03-05 05:10:51.406287",
-    "return_date": null,
-    "issue_by": 36,
-    "return_by": null
-  },
-  {
-    "book_id": 34,
-    "user_id": 24,
-    "borrow_date": "2016-03-15 15:43:37.538135",
-    "return_date": null,
-    "issue_by": 24,
-    "return_by": null
-  },
-  {
-    "book_id": 65,
-    "user_id": 35,
-    "borrow_date": "2016-03-16 02:07:26.20594",
-    "return_date": null,
-    "issue_by": 35,
-    "return_by": null
-  },
-  {
-    "book_id": 16,
-    "user_id": 25,
-    "borrow_date": "2016-04-25 08:21:17.504992",
-    "return_date": null,
-    "issue_by": 25,
-    "return_by": null
-  },
-  {
-    "book_id": 163,
-    "user_id": 35,
-    "borrow_date": "2016-05-17 05:57:35.624388",
-    "return_date": null,
-    "issue_by": 35,
-    "return_by": null
-  },
-  {
-    "book_id": 282,
-    "user_id": 35,
-    "borrow_date": "2016-05-17 05:57:59.029626",
-    "return_date": null,
-    "issue_by": 35,
-    "return_by": null
-  },
-  {
-    "book_id": 20,
-    "user_id": 15,
-    "borrow_date": "2016-05-18 02:49:23.550713",
-    "return_date": null,
-    "issue_by": 15,
-    "return_by": null
-  },
-  {
-    "book_id": 165,
-    "user_id": 17,
-    "borrow_date": "2016-05-24 10:01:23.111685",
-    "return_date": null,
-    "issue_by": 17,
-    "return_by": null
-  },
-  {
-    "book_id": 24,
-    "user_id": 6,
-    "borrow_date": "2016-05-24 12:47:41.232478",
-    "return_date": null,
-    "issue_by": 6,
-    "return_by": null
-  },
-  {
-    "book_id": 232,
-    "user_id": 34,
-    "borrow_date": "2016-05-26 15:39:56.716001",
-    "return_date": null,
-    "issue_by": 34,
-    "return_by": null
-  },
-  {
-    "book_id": 318,
-    "user_id": 45,
-    "borrow_date": "2016-10-12 04:20:43.228761",
-    "return_date": null,
-    "issue_by": 45,
-    "return_by": null
-  },
-  {
-    "book_id": 158,
-    "user_id": 37,
-    "borrow_date": "2016-10-14 09:24:56.345971",
-    "return_date": null,
-    "issue_by": 37,
-    "return_by": null
-  },
-  {
-    "book_id": 340,
-    "user_id": 14,
-    "borrow_date": "2016-10-24 13:04:54.965866",
-    "return_date": null,
-    "issue_by": 14,
-    "return_by": null
-  },
-  {
-    "book_id": 321,
-    "user_id": 5,
-    "borrow_date": "2016-11-12 08:16:39.832207",
-    "return_date": null,
-    "issue_by": 5,
-    "return_by": null
-  },
-  {
-    "book_id": 17,
-    "user_id": 14,
-    "borrow_date": "2016-11-17 09:35:09.379996",
-    "return_date": null,
-    "issue_by": 14,
-    "return_by": null
-  },
-  {
-    "book_id": 235,
-    "user_id": 27,
-    "borrow_date": "2016-11-19 12:06:32.09885",
-    "return_date": null,
-    "issue_by": 27,
-    "return_by": null
-  },
-  {
-    "book_id": 125,
-    "user_id": 27,
-    "borrow_date": "2016-11-30 04:41:32.434886",
-    "return_date": null,
-    "issue_by": 27,
-    "return_by": null
-  },
-  {
-    "book_id": 313,
-    "user_id": 27,
-    "borrow_date": "2016-11-30 04:48:53.956199",
-    "return_date": null,
-    "issue_by": 27,
-    "return_by": null
-  },
-  {
-    "book_id": 64,
-    "user_id": 27,
-    "borrow_date": "2016-11-30 04:49:30.337788",
-    "return_date": null,
-    "issue_by": 27,
-    "return_by": null
-  },
-  {
-    "book_id": 332,
-    "user_id": 35,
-    "borrow_date": "2017-01-11 14:00:55.222271",
-    "return_date": null,
-    "issue_by": 35,
-    "return_by": null
-  },
-  {
-    "book_id": 283,
-    "user_id": 49,
-    "borrow_date": "2017-03-20 14:14:36.596058",
-    "return_date": null,
-    "issue_by": 49,
-    "return_by": null
-  },
-  {
-    "book_id": 1,
-    "user_id": 49,
-    "borrow_date": "2017-03-20 14:15:14.365476",
-    "return_date": null,
-    "issue_by": 49,
-    "return_by": null
-  },
-  {
-    "book_id": 155,
-    "user_id": 9,
-    "borrow_date": "2017-06-03 10:05:52.789429",
-    "return_date": null,
-    "issue_by": 9,
-    "return_by": null
-  },
-  {
-    "book_id": 342,
-    "user_id": 3,
-    "borrow_date": "2017-06-10 06:18:18.591696",
-    "return_date": null,
-    "issue_by": 3,
-    "return_by": null
-  },
-  {
-    "book_id": 323,
-    "user_id": 38,
-    "borrow_date": "2017-06-19 15:49:03.033235",
-    "return_date": null,
-    "issue_by": 38,
-    "return_by": null
-  },
-  {
-    "book_id": 341,
-    "user_id": 44,
-    "borrow_date": "2017-06-24 07:53:32.576138",
-    "return_date": null,
-    "issue_by": 44,
+    "issue_by": 1,
     "return_by": null
   }
 ]
