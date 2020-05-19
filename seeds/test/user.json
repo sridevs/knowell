@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "email": "admin@domain.com",
+    "enabled": true,
+    "isBorrower": true,
+    "isLibrarian": false,
+    "isAdmin": true
+  },
+  {
+    "id": 2,
+    "email": "librarian@domain.com",
+    "enabled": true,
+    "isBorrower": true,
+    "isLibrarian": true,
+    "isAdmin": false
+  },
+  {
+    "id": 3,
+    "email": "disabled@domain.com",
+    "enabled": false,
+    "isBorrower": true,
+    "isLibrarian": true,
+    "isAdmin": false
+  }
+
+]

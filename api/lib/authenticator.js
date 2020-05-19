@@ -1,37 +1,27 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-let fs = require('fs');
-let User = require('../lib/user.js');
-let interactor = require('../services/interactor');
+const User = require('../lib/user.js');
+const interactor = require('../services/interactor');
 
-module.exports = function (passport) {
-
-    passport.use(new GoogleStrategy({
-            clientID: process.env.O_AUTH_CLIENT_ID,
-            clientSecret: process.env.O_AUTH_CLIENT_SECRET,
-            callbackURL: "/auth/google/callback"
-        },
-        async (token, refreshToken, profile, done) => {
-            let email = profile.emails[0].value;
-            let image = profile.photos[0].value;
-            let user = await interactor.findUserByEmail(email);
-            if (user) {
-                if (!user.name && profile.displayName) await interactor.updateName(email, profile.displayName);
-                if (!user.image && image) await interactor.updateImage(email, image);
-                return done(null, new User(user.id, profile.displayName, user.email, user.roles, user.enabled, user.image));
-            }
-            else return done(null, false);
-        })
-    );
-
-    passport.serializeUser(async (user, done) => {
-        done(null, user.emailId());
-    });
-
-    passport.deserializeUser(async (email, done) => {
-        let user = await interactor.findUserByEmail(email);
-        if (user) return done(null, new User(user.id, user.name, user.email, user.roles, user.enabled, user.image));
-    });
-
-    return passport;
-};
+module.exports = async function addUserContext(req, res, next) {
+	if (!req.userContext) {
+		return next();
+	}
+	// preferred_username is email
+	const {name, preferred_username} = req.userContext.userinfo;
+	const user = await interactor.findUserByEmail(preferred_username);
+	let updatedUser;
+	if (user) {
+		if (!user.name && name) await interactor.updateName(preferred_username, name);
+		updatedUser = new User(user.id, name, user.email, user.roles, user.enabled, user.image);
+	} else {
+		const userDetails = {
+			email: preferred_username,
+			isLibrarian:0,
+			isBorrower: 1,
+			isAdmin: 0
+		};
+		const {id, name,email,isBorrower,enabled,image} = await interactor.addUser(userDetails);
+		updatedUser = new User(id,name,email,{borrower: isBorrower},enabled,image);
+	}
+	req.user = updatedUser;
+	next();
+}

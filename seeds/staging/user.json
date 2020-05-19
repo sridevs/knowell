@@ -1,0 +1,9 @@
+[
+  {
+    "email": "sridevs@thoughtworks.com",
+    "enabled": true,
+    "isborrower": 1,
+    "islibrarian": 1,
+    "isadmin": 1
+  }
+]

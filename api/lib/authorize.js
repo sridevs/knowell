@@ -7,7 +7,7 @@ const userOnly = ( req, res, next) => {
 
     else {
          req.session.redirectTo = req.url;
-         res.status(401).render('login.ejs',{layout:'loginLayout'});
+         res.redirect('/login');
     }
 };
 

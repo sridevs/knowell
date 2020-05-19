@@ -13,6 +13,8 @@
     node_env: "{{ lookup('env', 'ENV') }}"
     o_auth_client_id: "{{ lookup('env', 'O_AUTH_CLIENT_ID') }}"
     o_auth_client_secret: "{{ lookup('env', 'O_AUTH_CLIENT_SECRET') }}"
+    okta_domain: "{{ lookup('env', 'OKTA_DOMAIN')}}"
+    logout_redirect_uri: "{{ lookup('env', 'LOGOUT_REDIRECT_URI')}}
 
 
   roles:

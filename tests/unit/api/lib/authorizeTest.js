@@ -131,10 +131,10 @@ describe('Authorize', function () {
         };
 
         const res = {
-            status: (statusCode) => {
+            status: () => {
                 return
             },
-            render: (page, layoutOption) => {
+            redirect: () => {
                 return
             }
         };
@@ -143,8 +143,7 @@ describe('Authorize', function () {
         const mockedRes = sinon.mock(res);
 
         mockedReq.expects('isAuthenticated').once().returns(false);
-        mockedRes.expects('status').withExactArgs(401).returnsThis();
-        mockedRes.expects('render').withExactArgs('login.ejs',{layout:'loginLayout'});
+        mockedRes.expects('redirect').withExactArgs('/login');
 
         authorize.userOnly(req, res, callback);
 

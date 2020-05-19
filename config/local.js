@@ -21,7 +21,5 @@ function getConfig(environment) {
 module.exports = {
   dev: getConfig('dev'),
 
-  qa: getConfig('qa'),
-
   test: getConfig('test')
 };

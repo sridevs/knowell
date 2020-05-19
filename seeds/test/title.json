@@ -1,0 +1,5 @@
+[
+  {"id": 1, "title": "Javascript", "isbn": "678910", "author": "ACB", "publisher": "AK publisher","thumbnailURL": "http://sampleurl/image.jpg","pages":20,"description": "Description"},
+  {"id": 2, "title": "Java", "isbn": "678910", "author": "EFG", "publisher": "PK publisher","thumbnailURL": "http://sampleurl/image.jpg","pages":20,"description": "Description"},
+  {"id": 3, "title": "Scala", "isbn": "5678910", "author": "LMN", "publisher": "AA publisher","thumbnailURL": "http://sampleurl/image.jpg","pages":20,"description": "Description"}
+]

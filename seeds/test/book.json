@@ -1,0 +1,7 @@
+[
+  {"id": 1, "title_id": 1, "tag_number": "1-1", "available": 0},
+  {"id": 2, "title_id": 1, "tag_number": "1-2", "available": 1},
+  {"id": 3, "title_id": 2, "tag_number": "2-3", "available": 0},
+  {"id": 4, "title_id": 3, "tag_number": "3-4", "available": 1},
+  {"id": 5, "title_id": 3, "tag_number": "3-5", "available": 1}
+]

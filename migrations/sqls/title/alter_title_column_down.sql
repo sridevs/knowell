@@ -1,1 +1,1 @@
-alter table title modify column title varchar(30);
+alter table title modify column title varchar(100);
