@@ -178,8 +178,7 @@ module.exports = {
   },
 
   fetchImage: async isbn => {
-    const image = await title.getImageFor(isbn);
-    return image;
+    return await title.getImageFor(isbn);
   },
 
   findUserByEmail: async (email) => {

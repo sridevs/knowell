@@ -1,13 +1,23 @@
 const User = require('../lib/user.js');
 const interactor = require('../services/interactor');
 
-module.exports = async function addUserContext(req, res, next) {
+function isLocal() {
+	const node_env = process.env.NODE_ENV;
+	return node_env === 'test' || node_env === 'dev';
+}
+
+async function addUserContext(req, res, next) {
+	const {local_user_name} = process.env.NODE_ENV;
+	if (isLocal()) {
+		req.userContext = {userinfo: {name: local_user_name, preferred_username: `${local_user_name}@thoughtworks.com`}};
+	}
 	if (!req.userContext) {
 		return next();
 	}
 	// preferred_username is email
 	const {name, preferred_username} = req.userContext.userinfo;
-	const user = await interactor.findUserByEmail(preferred_username);
+	const user =
+		await interactor.findUserByEmail(preferred_username);
 	let updatedUser;
 	if (user) {
 		if (!user.name && name) await interactor.updateName(preferred_username, name);
@@ -15,13 +25,18 @@ module.exports = async function addUserContext(req, res, next) {
 	} else {
 		const userDetails = {
 			email: preferred_username,
-			isLibrarian:0,
+			isLibrarian: 0,
 			isBorrower: 1,
 			isAdmin: 0
 		};
-		const {id, name,email,isBorrower,enabled,image} = await interactor.addUser(userDetails);
-		updatedUser = new User(id,name,email,{borrower: isBorrower},enabled,image);
+		const {id, name, email, isBorrower, enabled, image} = await interactor.addUser(userDetails);
+		updatedUser = new User(id, name, email, {borrower: isBorrower}, enabled, image);
 	}
 	req.user = updatedUser;
 	next();
+}
+
+module.exports = {
+	addUserContext,
+	isLocal
 }
