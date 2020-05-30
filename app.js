@@ -109,7 +109,8 @@ app.use((req, res) => {
 });
 
 oidc.on('ready', () => {
-	app.listen(8080, () => console.log('Started!'));
+	const port = 8080;
+	app.listen(port, () => console.log(`App is running on port ${port}`));
 });
 
 oidc.on('error', err => {

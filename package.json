@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run migration && node app.js",
+    "start-dev": "npm run migration && node_modules/nodemon/bin/nodemon.js app.js",
     "test": "istanbul cover _mocha -- tests/unit/api/**/* -R spec --exit",
     "migration": "node_modules/knex/bin/cli.js migrate:latest --env $NODE_ENV",
     "rollback": "node_modules/knex/bin/cli.js migrate:rollback --env $NODE_ENV",
@@ -43,6 +44,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^7.1.2",
     "mock-knex": "^0.4.9",
+    "nodemon": "^2.0.4",
     "sinon": "^9.0.2",
     "supertest": "^4.0.2"
   }
