@@ -54,7 +54,11 @@ workflows:
     jobs:
       - hawkeye
       - tests
-      - deploy-staging:
+      - hold:
+          type: approval
           requires:
             - hawkeye
             - tests
+      - deploy-staging:
+          requires:
+            - hold
