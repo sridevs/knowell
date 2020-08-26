@@ -1,4 +1,22 @@
+###Prerequisite
+
+```node (latest version should be fine)``` 
+ 
+```mysql (latest version should be fine)```  
+
+##Initial setup
+
 ###Make sure your mysql server is running
+
+```Run npm install```
+
+```Get setup file from fellow teammates and place it in root directory```
+
+```Run setup file```
+
+```Run npm run big-bang. Then app should be started and running on port 8080```
+
+###Key local commands to note
 
 ```Running database migration in dev environment npm run migration-dev```
 
@@ -12,12 +30,10 @@
 
 ```For Running local Server npm start```
 
-```Now Server is Running for access it local http://localhost:4000```
-
 ```Running migration, seed, and server npm run m-s-s```
 
 ```Running migration, seed and unit test npm run m-s-t```
 
-###Key local commands to note
+```Recreate DB and start application - run _npm run big-bang_```
 
-#### Run npm run m-s-s to get the app running in local
+
