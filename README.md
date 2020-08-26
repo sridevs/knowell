@@ -8,6 +8,12 @@
 
 ###Make sure your mysql server is running
 
+```Add the below line in .zshrc/.bashrc```
+ 
+```export NODE_ENV=dev```
+
+```Open new tab and run **echo $NODE_ENV** you should be seeing the result as dev```
+
 ```Run npm install```
 
 ```Get setup file from fellow teammates and place it in root directory```
